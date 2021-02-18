@@ -5,4 +5,5 @@ def run(command):
     return output.decode('unicode_escape')
 
 print(run("python3 temp-check.py")) # Check the Pi's CPU temperature
+print(run("python3 network-check.py")) # Check the Pi's connection
 print(run("python3 time-check.py")) # Check the Pi's system clock
