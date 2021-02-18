@@ -1,7 +1,7 @@
-import os
+import subprocess
 
 def run(command):
-    output = os.system(command)
+    output = subprocess.check_output(command)
     return output
 
 temp = int(run("cat /sys/class/thermal/thermal_zone0/temp"))
