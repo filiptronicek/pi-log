@@ -15,7 +15,7 @@ if syncOffset == 0:
 elif syncOffset <= 250:
     status = "The time on your system is synced very well."
 elif syncOffset > 250 and syncOffset <= 750:
-    status = "All is a-okay"
+    status = "Everything is a-okay"
 elif syncOffset >= 750:
     status = "You might want to resync" 
 
