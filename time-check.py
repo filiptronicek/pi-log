@@ -3,10 +3,28 @@ import requests
 
 print("Starting sync..")
 
-epoch_time = int(time_ns()) / 1_000_000
+runFor = 5
 
-syncResponce = requests.get(f"https://trnck.dev/time?ts={epoch_time}").json()
-syncOffset = syncResponce['result']['ms']
+def cal_average(num):
+    sum_num = 0
+    for t in num:
+        sum_num = sum_num + t           
+
+    avg = sum_num / len(num)
+    return avg
+
+def getSyncOffset():
+    syncs = []
+
+    for i in range(runFor):
+        epoch_time = int(time_ns()) / 1_000_000
+        syncResponce = requests.get(f"https://trnck.dev/time?ts={epoch_time}").json()
+        syncOffsetMs = syncResponce['result']['ms']
+        syncs.append(syncOffsetMs)
+    return cal_average(syncs)
+
+
+syncOffset = getSyncOffset()
 
 status = "Something went wrong.. hmmmm"
 
