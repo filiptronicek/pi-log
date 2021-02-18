@@ -15,4 +15,4 @@ if formattedTemp >= 75:
 else:
     status = "Everything looks good!"
 
-print(f"Your CPU temperature is {formattedTemp}. {status}")
+print(f"Your CPU temperature is {formattedTemp}°C. {status}")
