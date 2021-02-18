@@ -1,6 +1,5 @@
 import subprocess
-import timec, netc
-import tempc
+import timec, netc, tempc
 
 def run(command):
     output = subprocess.check_output(command.split(" "))
