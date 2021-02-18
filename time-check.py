@@ -1,8 +1,6 @@
 from time import time_ns
 import requests
 
-print("Starting sync..")
-
 runFor = 5
 
 def cal_average(num):
