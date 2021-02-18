@@ -18,5 +18,7 @@ elif syncOffset > 250 and syncOffset <= 750:
     status = "Everything is a-okay"
 elif syncOffset >= 750:
     status = "You might want to resync" 
+elif syncOffset >= 2000:
+    raise RuntimeError(f"Offset too high ({syncOffset}ms). Please resync your system clock.")
 
 print(f"Your system time offset is {syncOffset} ms. {status}")
