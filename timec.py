@@ -26,16 +26,22 @@ def check():
     syncOffset = getSyncOffset()
 
     status = "Something went wrong.. hmmmm"
+    icon = ""
 
     if syncOffset == 0:
         status = "Actually WHAT?"
+        icon = "✅"
     elif syncOffset <= 250:
         status = "The time on your system is synced very well."
+        icon = "✅"
     elif syncOffset > 250 and syncOffset <= 750:
         status = "Everything is a-okay"
+        icon = "✅"
     elif syncOffset >= 750:
         status = "You might want to resync" 
+        icon = "✅"
     elif syncOffset >= 2000:
-        raise RuntimeError(f"Offset too high ({syncOffset}ms). Please resync your system clock.")
+        status = "Offset is too high. Please resync your system clock."
+        icon = "❌"
 
-    print(f"Your system time offset is {syncOffset} ms. {status}")
+    print(f"{icon} Your system time offset is {syncOffset} ms. {status}")
